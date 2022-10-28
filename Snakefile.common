@@ -1,0 +1,13 @@
+from snake_functions import *
+
+rule multiqc:
+    input:
+         cellranger = expand("results/{sample}/outs/molecule_info.h5", sample=SAMPLES)
+    output:
+        "multiqc_report.html"
+    params:
+        input_dir = "results"
+    shell:
+        """
+        multiqc --interactive -d -f -m cellranger {params.input_dir}
+        """

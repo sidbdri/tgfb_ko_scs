@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+transcript_utils_hash=13ebb51e33ca873245396afb09a85aac6d70bc33
+sidbdri_utils_hash=66c152e538dafbb303bf8c45adb57ba40e4b09ab

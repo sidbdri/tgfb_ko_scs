@@ -1,0 +1,16 @@
+[gene-expression]
+reference,/srv/data/genome/mouse/refdata-gex-mm10-2020-A
+
+[libraries]
+fastq_id,fastqs,feature_types
+K_GEX,/srv/data/jqiu/tgfb_ko_scs/JQ_211022/outs/fastq_path/AAATHKMHV/,Gene Expression
+K_MP,/srv/data/jqiu/tgfb_ko_scs/JQ_211022/outs/fastq_path/AAATHKMHV/,Multiplexing Capture
+
+
+[samples]
+sample_id,cmo_ids
+KO1,CMO307
+KO2,CMO309
+KO3,CMO311
+KO4,CMO312
+

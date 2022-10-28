@@ -1,0 +1,35 @@
+include: "Snakefile.common"
+
+
+rule count:
+    input:
+        fastq = lambda wildcards: retrieve_fastqs(wildcards.sample)
+    output:
+        "results/{sample}/outs/molecule_info.h5"
+    params:
+        cellranger = CELLRANGER_EXECUTABLE,
+        transcriptome = MAPPER_INDEX,
+    shell:
+        """
+        input=`echo {input} | sed -e 's/ /,/g'`
+        cd results
+        rm -rf {wildcards.sample}
+        {params.cellranger} count --id {wildcards.sample} --fastqs $input --transcriptome {params.transcriptome} --sample {wildcards.sample}
+        """
+
+rule aggr:
+    input:
+        expand("results/{sample}/outs/molecule_info.h5", sample=SAMPLES),
+    output:
+        os.path.join("results",AGGR_ID,"outs","count","filtered_feature_bc_matrix.h5")
+    params:
+        cellranger = CELLRANGER_EXECUTABLE,
+        aggr_csv = AGGR_CSV,
+        aggr_id = AGGR_ID
+    shell:
+        """
+        cd results
+        rm -rf aggr
+        {params.cellranger} aggr --id {params.aggr_id} --csv ./../{params.aggr_csv}
+        """
+
