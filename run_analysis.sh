@@ -26,6 +26,44 @@ cellranger-7.0.1 multi --id AAATHKMHV_KO --csv KO_config.csv
 
 cellranger-7.0.1 aggr --id AAATHKMHV_aggr --csv aggr.csv
 
+
+
+# for sample in KO1 KO2 KO3 KO4 WT1 WT2 WT3 WT4;do
+# # for sample in KO1;do
+# 	mkdir -p /home/xinhe/projects/tgfb_ko_scs/igv/${sample}
+# 	for cell in Microglia Endothelial Neurons pericytes Oligo Astrocytes OPC; do
+# 		bash /home/xinhe/Projects/sidbdri-utils/scripts/bam4igv.sh -f \
+# 		    --input-bam /home/xinhe/projects/tgfb_ko_scs/AAATHKMHV_${sample::2}/outs/per_sample_outs/${sample}/count/sample_alignments.bam \
+# 		    --output-dir /home/xinhe/projects/tgfb_ko_scs/igv/${sample} \
+# 		    --location-string "chr1:186622792-186705989" \
+# 		    --cell-barcode-tsv /home/xinhe/projects/tgfb_ko_scs/cluster_files/${cell}.tsv \
+# 		    --cores 5
+# 	done
+# done
+#
+# for type in KO WT;do
+#      sambamba merge -t 10 ${type}.bam ./${type}[1234]/chr1:186622792-186705989_sample_alignments.bam
+#     for cell in Microglia Endothelial Neurons pericytes Oligo Astrocytes OPC; do
+#         sambamba merge -t 10 ${type}_${cell}.bam ./${type}[1234]/${cell}_chr1:186622792-186705989_sample_alignments.bam
+#     done
+# done
+#
+# for type in WT;do
+#      sambamba merge -t 10 ${type}.bam ./${type}[134]/chr1:186622792-186705989_sample_alignments.bam
+#     for cell in Microglia Endothelial Neurons pericytes Oligo Astrocytes OPC; do
+#         sambamba merge -t 10 ${type}_${cell}.bam ./${type}[134]/${cell}_chr1:186622792-186705989_sample_alignments.bam
+#     done
+# done
+#
+# # for sample in KO1 KO2 KO3 KO4 WT1 WT2 WT3 WT4;do
+# for sample in KO1 KO2 KO3 KO4 WT1 WT2 WT3 WT4;do
+#     for file in ${sample}/*chr1:*;do
+#         cp ${file} ./${sample}_`basename $file`
+# 	done
+# done
+# for i in *.sql ; do
+#     mv -v $i ${i%.sql}-AM.sql
+# done
 #
 #
 #
