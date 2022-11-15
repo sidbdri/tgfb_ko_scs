@@ -1,0 +1,9 @@
+sample_id,sample_outs,genotype
+WT1-302,AAATHKMHV_WT/outs/per_sample_outs/WT1,WT
+WT5-308,AAATHKMHV_WT/outs/per_sample_outs/WT2,WT
+WT3-310,AAATHKMHV_WT/outs/per_sample_outs/WT3,WT
+KO3-WL-3012,AAATHKMHV_WT/outs/per_sample_outs/WT4,KO
+KO1-307,AAATHKMHV_KO/outs/per_sample_outs/KO1,KO
+WT2-309,AAATHKMHV_KO/outs/per_sample_outs/KO2,WT
+WT4-3011,AAATHKMHV_KO/outs/per_sample_outs/KO3,WT
+KO2-KL-3012,AAATHKMHV_KO/outs/per_sample_outs/KO4,KO

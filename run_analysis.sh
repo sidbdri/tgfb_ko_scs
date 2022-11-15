@@ -1,5 +1,16 @@
 #!/bin/bash
 
+function cleanup {
+   echo "Cleaning tmp..."
+   rm -rf ${MAIN_DIR}/*.tmp
+   echo "Killing all sub-processes..."
+   kill -- -$$
+}
+
+trap exit INT
+trap cleanup EXIT
+
+
 export WORKON_HOME=${HOME}/.virtualenvs
 export PROJECT_HOME=${HOME}/projects
 source /usr/local/bin/virtualenvwrapper.sh
@@ -88,3 +99,8 @@ cellranger-7.0.1 aggr --id AAATHKMHV_aggr --csv aggr.csv
 # exit;
 #
 # Rscript seurat_analysis_mouse.R
+
+
+
+# to check read from cell
+# samtools view sample_alignments.bam chr1:186,622,792-186,632,842 | grep
